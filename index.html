@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feel Good News – Your Daily Dose of Good News</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-logo">Feel<span>Good</span>News</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Stories</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Subscribe ✨</button>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">🌞 Good News Every Day</div>
+        <h1>Your daily dose of <em>good news</em></h1>
+        <p class="hero-sub">
+          Uplifting stories from around the world — because the world is full of
+          kindness, courage, and hope.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary">Read Today's Stories</button>
+          <button class="btn-secondary">Learn About Us</button>
+        </div>
+      </div>
+
+      <!-- Featured Story Card (content filled by stories.js) -->
+      <div class="hero-featured">
+        <div class="hero-featured-img" id="featured-img">🌻</div>
+        <div class="hero-featured-body">
+          <div class="featured-label">⭐ Featured Story</div>
+          <h2 id="featured-title"></h2>
+          <p id="featured-excerpt"></p>
+          <a id="featured-link" href="#" class="read-more">Read the full story →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Latest Stories ───────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">Latest Stories</h2>
+      <a href="#" class="section-link">View all →</a>
+    </div>
+    <div class="story-grid" id="story-grid">
+      <!-- Cards are injected here by stories.js -->
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ── Newsletter ───────────────────────────────────────────────── -->
+  <div class="newsletter" id="newsletter">
+    <h2>☀️ Start every day feeling good</h2>
+    <p>Get our best uplifting stories delivered to your inbox each morning — free, always.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="your@email.com" aria-label="Email address" />
+      <button type="button">Subscribe</button>
+    </div>
+  </div>
+
+  <!-- ── Footer ───────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">FeelGoodNews</div>
+    <p>© 2025 FeelGoodNews &nbsp;·&nbsp; <a href="#">About</a> &nbsp;·&nbsp; <a href="#">Contact</a> &nbsp;·&nbsp; <a href="#">Privacy</a></p>
+  </footer>
+
+  <!-- CMS Script -->
+  <script src="stories.js"></script>
+
+</body>
+</html>
