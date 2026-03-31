@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — FeelGoodNews</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Contact Page Specific Styles -->
+  <style>
+
+    /* ─── Page Hero (shorter than homepage) ─────────────────────── */
+    .contact-hero {
+      background: linear-gradient(135deg, var(--yellow) 0%, var(--amber) 100%);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      pointer-events: none;
+    }
+
+    .contact-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+      pointer-events: none;
+    }
+
+    .contact-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-hero .hero-badge {
+      margin-bottom: 1rem;
+    }
+
+    .contact-hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.1;
+    }
+
+    .contact-hero h1 em {
+      font-style: italic;
+      color: var(--white);
+    }
+
+    .contact-hero p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: rgba(26,20,0,0.72);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ─── Main Two-Column Layout ─────────────────────────────────── */
+    .contact-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ─── Contact Form ───────────────────────────────────────────── */
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 2px solid var(--border);
+      padding: 2.5rem;
+      box-shadow: 0 4px 24px var(--shadow);
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .form-card h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-card .form-subtitle {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.8rem 1.1rem;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--border);
+      background: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(122, 106, 32, 0.5);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--amber);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(255,159,28,0.15);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+      line-height: 1.6;
+    }
+
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%237A6A20' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      cursor: pointer;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--text);
+      color: var(--yellow);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 16px rgba(26,20,0,0.15);
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26,20,0,0.2);
+    }
+
+    /* Success message (shown after submit) */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .form-success .success-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-success h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success p {
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* ─── Right Info Panel ───────────────────────────────────────── */
+    .info-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      animation: fadeUp 0.6s ease 0.15s both;
+    }
+
+    .info-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 2px solid var(--border);
+      padding: 1.8rem;
+    }
+
+    .info-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      font-weight: 900;
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Reach out reasons */
+    .reason-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .reason-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .reason-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--yellow-light);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .reason-list li span {
+      padding-top: 0.3rem;
+    }
+
+    /* Email coming soon */
+    .email-coming-soon {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      background: var(--yellow-light);
+      border: 2px dashed var(--yellow-dark);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem;
+    }
+
+    .email-coming-soon .email-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .email-coming-soon p {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .email-coming-soon p strong {
+      color: var(--text);
+      font-weight: 800;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    /* Social links */
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--border);
+      background: var(--cream);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text);
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      cursor: pointer;
+    }
+
+    .social-link:hover {
+      border-color: var(--amber);
+      background: var(--yellow-light);
+      transform: translateX(4px);
+    }
+
+    .social-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--yellow);
+      border: 2px solid var(--yellow-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .social-coming-soon {
+      margin-left: auto;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--yellow-light);
+      border: 1.5px solid var(--border);
+      padding: 0.15rem 0.5rem;
+      border-radius: 50px;
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .contact-body {
+        grid-template-columns: 1fr;
+        padding: 2.5rem 1.2rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .form-card {
+        padding: 1.8rem 1.4rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-logo">Feel<span>Good</span>News</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Stories</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Subscribe ✨</button>
+  </nav>
+
+  <!-- ── Page Hero ───────────────────────────────────────────────── -->
+  <section class="contact-hero">
+    <div class="contact-hero-inner">
+      <div class="hero-badge">💛 Get In Touch</div>
+      <h1>We'd love to <em>hear from you</em></h1>
+      <p>Have a story tip, feedback, or just want to say hello? Drop us a message — we read every single one.</p>
+    </div>
+  </section>
+
+  <!-- ── Main Content ─────────────────────────────────────────────── -->
+  <div class="contact-body">
+
+    <!-- Left: Contact Form -->
+    <div class="form-card">
+
+      <!-- The form itself -->
+      <div id="contact-form-wrap">
+        <h2>Send us a message</h2>
+        <p class="form-subtitle">Fill in the form below and we'll get back to you as soon as we can.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" placeholder="Jane" />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" placeholder="Smith" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="jane@example.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="subject">What's this about?</label>
+          <select id="subject">
+            <option value="" disabled selected>Select a subject...</option>
+            <option value="story-tip">🗞️ I have a story tip</option>
+            <option value="feedback">💬 General feedback</option>
+            <option value="press">📣 Press & media inquiry</option>
+            <option value="other">✉️ Something else</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" placeholder="Tell us what's on your mind..."></textarea>
+        </div>
+
+        <button class="form-submit" onclick="handleSubmit()">Send Message ✨</button>
+      </div>
+
+      <!-- Success message (shown after submit) -->
+      <div class="form-success" id="form-success">
+        <div class="success-icon">🌻</div>
+        <h3>Message sent!</h3>
+        <p>Thanks for reaching out. We'll get back to you soon!</p>
+      </div>
+
+    </div>
+
+    <!-- Right: Info Panel -->
+    <div class="info-panel">
+
+      <!-- Why reach out -->
+      <div class="info-card">
+        <h3>💬 Why reach out?</h3>
+        <ul class="reason-list">
+          <li>
+            <div class="reason-icon">🗞️</div>
+            <span><strong>Story tip</strong> — Know someone doing something amazing? We want to tell their story.</span>
+          </li>
+          <li>
+            <div class="reason-icon">📣</div>
+            <span><strong>Press & media</strong> — Journalists and media outlets are welcome to get in touch.</span>
+          </li>
+          <li>
+            <div class="reason-icon">💬</div>
+            <span><strong>Feedback</strong> — Loved a story? Have a suggestion? We'd love to hear it.</span>
+          </li>
+          <li>
+            <div class="reason-icon">✉️</div>
+            <span><strong>Anything else</strong> — No reason is too small. Say hello!</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Email coming soon -->
+      <div class="info-card">
+        <h3>📧 Email Us</h3>
+        <div class="email-coming-soon">
+          <div class="email-icon">📬</div>
+          <p>
+            <strong>Coming Soon</strong>
+            Our dedicated contact email is on its way. In the meantime, use the form!
+          </p>
+        </div>
+      </div>
+
+      <!-- Social links -->
+      <div class="info-card">
+        <h3>🌐 Follow Us</h3>
+        <div class="social-links">
+          <div class="social-link">
+            <div class="social-icon">𝕏</div>
+            <span>Twitter / X</span>
+            <span class="social-coming-soon">Soon</span>
+          </div>
+          <div class="social-link">
+            <div class="social-icon">📸</div>
+            <span>Instagram</span>
+            <span class="social-coming-soon">Soon</span>
+          </div>
+          <div class="social-link">
+            <div class="social-icon">👥</div>
+            <span>Facebook</span>
+            <span class="social-coming-soon">Soon</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Footer ───────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">FeelGoodNews</div>
+    <p>© 2025 FeelGoodNews &nbsp;·&nbsp; <a href="index.html">Home</a> &nbsp;·&nbsp; <a href="#">About</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a> &nbsp;·&nbsp; <a href="#">Privacy</a></p>
+  </footer>
+
+  <script>
+    function handleSubmit() {
+      const firstName = document.getElementById('first-name').value.trim();
+      const email     = document.getElementById('email').value.trim();
+      const subject   = document.getElementById('subject').value;
+      const message   = document.getElementById('message').value.trim();
+
+      // Basic validation
+      if (!firstName || !email || !subject || !message) {
+        alert('Please fill in all required fields before sending.');
+        return;
+      }
+
+      // Hide form, show success message
+      document.getElementById('contact-form-wrap').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
