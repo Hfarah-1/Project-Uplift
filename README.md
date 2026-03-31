@@ -1,4 +1,4 @@
-# 🌻 Project Uplift — FeelGoodNews
+# Project Uplift — FeelGoodNews 🌻
 
 > A feel-good news website delivering uplifting stories every day. Built with HTML, CSS & vanilla JavaScript.
 
@@ -8,7 +8,7 @@
 
 ---
 
-## 🌟 About
+## About
 
 FeelGoodNews is an uplifting news website dedicated to sharing positive, feel-good stories from around the world. In a world full of negativity in the news cycle, we believe there is always good worth celebrating — acts of kindness, community heroes, environmental wins, and inspiring people making a difference every day.
 
@@ -16,7 +16,7 @@ The site is written by real journalists and updated regularly with new stories.
 
 ---
 
-## ✨ Features
+## Features
 
 - **Hero banner** with a featured story and daily tagline
 - **Story card grid** showcasing the latest articles
@@ -27,7 +27,7 @@ The site is written by real journalists and updated regularly with new stories.
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Hero Section
 ![Hero Section](screenshots/Hero.png)
@@ -40,7 +40,7 @@ The site is written by real journalists and updated regularly with new stories.
 
 ---
 
-## 📁 File Structure
+## File Structure
 
 ```
 Project-Uplift/
@@ -53,7 +53,7 @@ Project-Uplift/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### View locally
 1. Clone or download this repository
@@ -67,7 +67,7 @@ Double-click `index.html` — it will open directly in your browser with no setu
 
 ---
 
-## 📝 How to Add a New Story
+## How to Add a New Story
 
 All stories are managed inside `stories.js` — no database or backend required.
 
@@ -77,14 +77,14 @@ All stories are managed inside `stories.js` — no database or backend required.
 
 ```js
 {
-  emoji:   "🎉",                   // placeholder shown until you have a real photo
+  emoji:   "🎉",                   // using some placeholder emojis until we can add real photos for the articles
   imgUrl:  "images/my-photo.jpg",  // leave as "" if using emoji placeholder
   tag:     "Community",            // short category label
   title:   "Your headline here",
   excerpt: "A short 1–2 sentence summary of the story.",
   author:  "Journalist Name",
   date:    "April 1, 2025",
-  url:     "article.html"          // link to the full article page (use "#" for now)
+  url:     "article.html"          // link to the full article page (using "#" for now)
 }
 ```
 
@@ -100,7 +100,7 @@ Scroll down to the `FEATURED_STORY` object in `stories.js` and update it the sam
 
 ---
 
-## 🎨 Customization
+## Customization
 
 | What you want to change | Where to change it |
 |---|---|
@@ -112,7 +112,7 @@ Scroll down to the `FEATURED_STORY` object in `stories.js` and update it the sam
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 Planned features for future versions:
 
@@ -127,7 +127,7 @@ Planned features for future versions:
 
 ---
 
-## 🛠️ Built With
+## Built With
 
 - HTML5
 - CSS3
@@ -136,7 +136,7 @@ Planned features for future versions:
 
 ---
 
-## 👥 Team
+## Team
 
 | Role | Name |
 |---|---|
@@ -147,7 +147,7 @@ Planned features for future versions:
 
 ---
 
-## 📬 Contact
+## Contact
 
 Have a story tip or want to get in touch?
 
@@ -157,6 +157,6 @@ Have a story tip or want to get in touch?
 
 ---
 
-## 📄 License
+## License
 
 © 2025 Project Uplift / FeelGoodNews. All rights reserved.
