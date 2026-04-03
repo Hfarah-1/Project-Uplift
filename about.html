@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — FeelGoodNews</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- About Page Specific Styles -->
+  <style>
+
+    /* ─── Page Hero ──────────────────────────────────────────────── */
+    .about-hero {
+      background: linear-gradient(135deg, var(--yellow) 0%, var(--amber) 100%);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      pointer-events: none;
+    }
+
+    .about-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+      pointer-events: none;
+    }
+
+    .about-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.15;
+    }
+
+    .about-hero h1 em {
+      font-style: italic;
+      color: var(--white);
+    }
+
+    .about-hero p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: rgba(26,20,0,0.72);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ─── Shared Section Styles ──────────────────────────────────── */
+    .about-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .about-section-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ─── Our Story ──────────────────────────────────────────────── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .story-text p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 1.1rem;
+    }
+
+    .story-text p:last-child { margin-bottom: 0; }
+
+    .story-image-block {
+      background: linear-gradient(135deg, var(--yellow-light), var(--yellow));
+      border-radius: var(--radius);
+      border: 2px solid var(--border);
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 4rem;
+      box-shadow: 0 8px 32px var(--shadow);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .story-image-block p {
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    /* ─── Mission Statement ──────────────────────────────────────── */
+    .mission-block {
+      background: linear-gradient(135deg, var(--yellow) 0%, var(--amber) 100%);
+      border-radius: var(--radius);
+      padding: 4rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin: 0 2rem;
+    }
+
+    .mission-block::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      pointer-events: none;
+    }
+
+    .mission-block::after {
+      content: '';
+      position: absolute;
+      bottom: -50px; left: -50px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+      pointer-events: none;
+    }
+
+    .mission-block-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .mission-label {
+      display: inline-block;
+      background: rgba(255,255,255,0.35);
+      border: 1.5px solid rgba(255,255,255,0.5);
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 1.2rem;
+    }
+
+    .mission-block blockquote {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 900;
+      line-height: 1.35;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .mission-block blockquote em {
+      font-style: italic;
+      color: var(--white);
+    }
+
+    .mission-block p {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: rgba(26,20,0,0.72);
+    }
+
+    /* ─── Why Good News Matters ──────────────────────────────────── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .why-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px var(--shadow);
+    }
+
+    .why-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .why-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    .why-card p {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── Our Values ─────────────────────────────────────────────── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .value-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem 1.4rem;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px var(--shadow);
+    }
+
+    .value-emoji {
+      font-size: 2.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .value-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    .value-card p {
+      font-size: 0.87rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ─── Meet the Team ──────────────────────────────────────────── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .team-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px var(--shadow);
+    }
+
+    /* Photo area — swap the emoji placeholder for a real <img> tag */
+    .team-photo {
+      height: 200px;
+      background: linear-gradient(135deg, var(--yellow-light), var(--yellow));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      overflow: hidden;
+      border-bottom: 2px solid var(--border);
+    }
+
+    /* Add photo Later (DONT FORGET THIS BRO!!!!!!!)
+       1. Add your photo to the images/ folder e.g. images/hamza.jpg
+       2. Replace the emoji inside .team-photo with:
+          <img src="images/hamza.jpg" alt="Hamza Farah" />
+       The image will fill the space automatically. */
+
+    .team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .team-body {
+      padding: 1.5rem;
+    }
+
+    .team-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 0.2rem;
+    }
+
+    .team-role {
+      display: inline-block;
+      background: var(--yellow-light);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+      margin-bottom: 0.9rem;
+    }
+
+    .team-bio {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── Call to Action ─────────────────────────────────────────── */
+    .cta-block {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 3rem;
+      text-align: center;
+      margin: 0 2rem 4rem;
+      box-shadow: 0 4px 24px var(--shadow);
+    }
+
+    .cta-block h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      margin-bottom: 0.6rem;
+    }
+
+    .cta-block p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons .btn-primary {
+      background: var(--text);
+      color: var(--yellow);
+      text-decoration: none;
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+    }
+
+    .cta-buttons .btn-outline {
+      background: transparent;
+      color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-buttons .btn-outline:hover {
+      background: var(--yellow-light);
+      border-color: var(--yellow-dark);
+    }
+
+    /* ─── Dividers ───────────────────────────────────────────────── */
+    .section-divider {
+      border: none;
+      height: 2px;
+      background: var(--border);
+      margin: 0 2rem;
+    }
+
+    /* ─── Animations ─────────────────────────────────────────────── */
+    .fade-up {
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .fade-up-delay {
+      animation: fadeUp 0.6s ease 0.15s both;
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .values-grid  { grid-template-columns: repeat(2, 1fr); }
+      .why-grid     { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .story-grid   { grid-template-columns: 1fr; }
+      .story-image-block { min-height: 200px; }
+      .team-grid    { grid-template-columns: 1fr; max-width: 380px; }
+      .values-grid  { grid-template-columns: repeat(2, 1fr); }
+      .why-grid     { grid-template-columns: 1fr; }
+      .mission-block { margin: 0 1rem; padding: 2.5rem 1.5rem; }
+      .cta-block    { margin: 0 1rem 3rem; padding: 2rem 1.4rem; }
+      .about-section { padding: 3rem 1.2rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-logo">Feel<span>Good</span>News</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Stories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Subscribe ✨</button>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────────────── -->
+  <section class="about-hero">
+    <div class="about-hero-inner fade-up">
+      <div class="hero-badge">🌻 Our Story</div>
+      <h1>We're on a mission to <em>spread good news</em></h1>
+      <p>Because the world is kinder, braver, and more hopeful than the headlines let on.</p>
+    </div>
+  </section>
+
+  <!-- ── Our Story ───────────────────────────────────────────────── -->
+  <div class="about-section fade-up">
+    <div class="story-grid">
+      <div class="story-text">
+        <h2 class="about-section-title">Our Story</h2>
+
+        <p>
+          FeelGoodNews started with a simple frustration — every time we opened our phones,
+          the news was relentlessly negative. Disaster, conflict, outrage, repeat. It was
+          exhausting, and we knew we weren't alone in feeling that way.
+        </p>
+        <p>
+          So two friends decided to do something about it. We believed then, as we do now,
+          that the world is full of remarkable people doing remarkable things — and that
+          those stories deserve just as much of the spotlight as the bad ones.
+        </p>
+        <p>
+          Project Uplift was born out of that belief. We partnered with talented journalists
+          who share our vision, and together we set out to build a place where people could
+          come every day and leave feeling a little better about the world.
+        </p>
+
+      </div>
+      <div class="story-image-block">
+        <!-- You can replace this with a team photo or brand image later -->
+        <!-- Example: <img src="images/team.jpg" alt="The FeelGoodNews team" /> -->
+        🌍
+        <p>Making the world feel a little brighter</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ── Mission Statement ───────────────────────────────────────── -->
+  <div style="padding: 4rem 0;">
+    <div class="mission-block fade-up">
+      <div class="mission-block-inner">
+        <div class="mission-label">🌟 Our Mission</div>
+        <blockquote>
+          "To give people a daily reason to believe the world is <em>good</em> —
+          through honest, uplifting stories told with care."
+        </blockquote>
+        <p>
+          We don't ignore reality. We just choose to shine a light on the parts of it
+          that inspire us — because we believe what you focus on grows.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ── Why Good News Matters ───────────────────────────────────── -->
+  <div class="about-section fade-up">
+    <h2 class="about-section-title">Why Good News Matters</h2>
+    <p style="font-weight:600; color: var(--text-muted); max-width: 620px; line-height: 1.7;">
+      Constant exposure to negative news isn't just unpleasant — research shows it has a
+      real impact on mental health, increasing stress, anxiety, and feelings of helplessness.
+      We exist to offer an alternative.
+    </p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🧠</div>
+        <h3>Mental Wellbeing</h3>
+        <p>A steady diet of negative news raises cortisol and stress levels. Uplifting stories have the opposite effect — they genuinely improve how you feel.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <h3>Community & Connection</h3>
+        <p>Good news stories remind us that humans are fundamentally kind and generous. They build social trust and a sense of shared humanity.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💡</div>
+        <h3>Inspiration to Act</h3>
+        <p>When people see others doing good, they're more likely to do good themselves. Positive stories are contagious in the best possible way.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ── Our Values ──────────────────────────────────────────────── -->
+  <div class="about-section fade-up">
+    <h2 class="about-section-title">Our Values</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-emoji">✅</div>
+        <h3>Authenticity</h3>
+        <p>Every story we publish is real, verified, and told honestly. We never sensationalize or exaggerate.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-emoji">💛</div>
+        <h3>Positivity</h3>
+        <p>We actively seek out the good. Not because we're naive, but because we believe it deserves more airtime.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-emoji">🌍</div>
+        <h3>Community</h3>
+        <p>We celebrate everyday people making a difference — in their neighbourhoods, cities, and across the world.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-emoji">🔍</div>
+        <h3>Accuracy</h3>
+        <p>Good news is only good if it's true. Our journalists fact-check every story before it goes live.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ── Meet the Team ───────────────────────────────────────────── -->
+  <div class="about-section fade-up">
+    <h2 class="about-section-title" style="text-align:center;">Meet the Team</h2>
+    <p style="text-align:center; font-weight:600; color:var(--text-muted); margin-bottom: 0; margin-top: -0.5rem;">
+      The people behind the good news.
+    </p>
+    <div class="team-grid">
+
+      <!-- ── Hamza's Card ──────────────────────────────────────────
+           NEED TO DO!
+           1. Replace the emoji with a cool photo:
+              <img src="images/hamza.jpg" alt="Hamza Farah" />
+           2. Update the bio text below to whatever you'd like it to say.
+      ────────────────────────────────────────────────────────────── -->
+      <div class="team-card">
+        <div class="team-photo">
+          <!-- Replace with: <img src="images/hamza.jpg" alt="Hamza Farah" /> -->
+          👤
+        </div>
+        <div class="team-body">
+          <div class="team-name">Hamza Farah</div>
+          <div class="team-role">Co-Founder & Developer</div>
+          <p class="team-bio">
+            <!-- gonna add a cool personal bio here. A sentence or two about who you are,
+                 your background, and why you started FeelGoodNews. -->
+            Super Super cool bio incoming soon
+          </p>
+        </div>
+      </div>
+
+      <!-- ── Layton's Card ─────────────────────────────────────────
+           NEED TO DO:
+           1. Replace the emoji with a cool photo of Layton:
+              <img src="images/layton.jpg" alt="Layton Perry" />
+           2. Update the bio text below.
+      ────────────────────────────────────────────────────────────── -->
+      <div class="team-card">
+        <div class="team-photo">
+          <!-- Replace with: <img src="images/layton.jpg" alt="Layton Perry" /> -->
+          👤
+        </div>
+        <div class="team-body">
+          <div class="team-name">Layton Perry</div>
+          <div class="team-role">Co-Founder & Developer</div>
+          <p class="team-bio">
+            <!-- Add Layton's super duper cool bio here. A sentence or two about him,
+                 his background, and his role in FeelGoodNews. -->
+            Super Super cool bio incoming soon
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Journalists note -->
+    <p style="text-align:center; margin-top: 1.8rem; font-size: 0.9rem; font-weight: 700; color: var(--text-muted);">
+      🗞️ Our journalism team will be introduced here soon — stay tuned!
+    </p>
+
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ── Call to Action ──────────────────────────────────────────── -->
+  <div style="padding: 4rem 0 0;">
+    <div class="cta-block fade-up">
+      <h2>Want to be part of the good news? 🌻</h2>
+      <p>Have an uplifting story to share, or just want to follow along? We'd love to hear from you.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn-primary">Submit a Story Tip</a>
+        <a href="index.html#newsletter" class="btn-outline">Subscribe to the Newsletter</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Footer ───────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">FeelGoodNews</div>
+    <p>© 2025 FeelGoodNews &nbsp;·&nbsp; <a href="about.html">About</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a> &nbsp;·&nbsp; <a href="#">Privacy</a></p>
+  </footer>
+
+</body>
+</html>
