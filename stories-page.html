@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Stories — FeelGoodNews</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Stories Page Specific Styles -->
+  <style>
+
+    /* ─── Hero ───────────────────────────────────────────────────── */
+    .stories-hero {
+      background: linear-gradient(135deg, var(--yellow) 0%, var(--amber) 100%);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stories-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      pointer-events: none;
+    }
+
+    .stories-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+      pointer-events: none;
+    }
+
+    .stories-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .stories-hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.15;
+    }
+
+    .stories-hero h1 em {
+      font-style: italic;
+      color: var(--white);
+    }
+
+    .stories-hero p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: rgba(26,20,0,0.72);
+      max-width: 480px;
+      margin: 0 auto 1.8rem;
+    }
+
+    /* ─── Search Bar ─────────────────────────────────────────────── */
+    .search-wrap {
+      max-width: 520px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      padding: 0.9rem 1.2rem 0.9rem 3rem;
+      border-radius: 50px;
+      border: 2.5px solid rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.55);
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      outline: none;
+      transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-wrap input::placeholder { color: rgba(26,20,0,0.45); }
+
+    .search-wrap input:focus {
+      background: rgba(255,255,255,0.85);
+      border-color: var(--white);
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+
+    /* ─── Featured Story (top of feed) ──────────────────────────── */
+    .featured-story-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 0;
+    }
+
+    .featured-story-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      box-shadow: 0 8px 32px var(--shadow);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .featured-story-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px var(--shadow);
+    }
+
+    .featured-story-img {
+      min-height: 280px;
+      background: linear-gradient(135deg, var(--yellow-light), var(--yellow));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      overflow: hidden;
+    }
+
+    .featured-story-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .featured-story-body {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-story-body .featured-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.75rem;
+    }
+
+    .featured-story-body h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 0.8rem;
+    }
+
+    .featured-story-body p {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .featured-story-body .story-meta {
+      margin-bottom: 1.2rem;
+    }
+
+    .featured-story-body .read-more {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--amber);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.2s;
+    }
+
+    .featured-story-body .read-more:hover { gap: 0.6rem; }
+
+    /* ─── Main Section ───────────────────────────────────────────── */
+    .stories-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+    }
+
+    .stories-section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.8rem;
+    }
+
+    .stories-section-header h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+    }
+
+    .story-count {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* ─── No Results Message ─────────────────────────────────────── */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 4rem 2rem;
+      grid-column: 1 / -1;
+    }
+
+    .no-results .no-results-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+    .no-results h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    .no-results p {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* ─── Load More Button ───────────────────────────────────────── */
+    .load-more-wrap {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    .btn-load-more {
+      background: var(--white);
+      color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.85rem 2.2rem;
+      border-radius: 50px;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+
+    .btn-load-more:hover {
+      background: var(--yellow-light);
+      border-color: var(--yellow-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-load-more:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .featured-story-card { grid-template-columns: 1fr; }
+      .featured-story-img  { min-height: 200px; font-size: 4rem; }
+      .featured-story-body { padding: 1.5rem; }
+      .featured-story-body h2 { font-size: 1.25rem; }
+      .stories-section { padding: 2rem 1.2rem 3rem; }
+      .featured-story-wrap { padding: 2rem 1.2rem 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-logo">Feel<span>Good</span>News</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="stories-page.html">Stories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Subscribe ✨</button>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────────────── -->
+  <section class="stories-hero">
+    <div class="stories-hero-inner">
+      <div class="hero-badge">🗞️ All Stories</div>
+      <h1>Stories that make you feel <em>good</em></h1>
+      <p>Every uplifting story we've ever published, all in one place.</p>
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search stories..."
+          oninput="handleSearch()"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Featured Story ──────────────────────────────────────────── -->
+  <div class="featured-story-wrap" id="featured-story-wrap">
+    <div class="featured-story-card" id="sp-featured-card" onclick="">
+      <div class="featured-story-img" id="sp-featured-img">🌻</div>
+      <div class="featured-story-body">
+        <div class="featured-label">⭐ Featured Story</div>
+        <h2 id="sp-featured-title"></h2>
+        <p id="sp-featured-excerpt"></p>
+        <div class="story-meta">
+          <div class="story-author">
+            <div class="author-avatar" id="sp-featured-avatar"></div>
+            <span id="sp-featured-author"></span>
+          </div>
+          <span id="sp-featured-date"></span>
+        </div>
+        <a id="sp-featured-link" href="#" class="read-more">Read the full story →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── All Stories Grid ─────────────────────────────────────────── -->
+  <div class="stories-section">
+    <div class="stories-section-header">
+      <h2>Latest Stories</h2>
+      <span class="story-count" id="story-count"></span>
+    </div>
+
+    <div class="story-grid" id="sp-story-grid"></div>
+
+    <!-- No results message -->
+    <div class="no-results" id="no-results">
+      <div class="no-results-icon">🔍</div>
+      <h3>No stories found</h3>
+      <p>Try a different search term — there's plenty of good news out there!</p>
+    </div>
+
+    <!-- Load More -->
+    <div class="load-more-wrap" id="load-more-wrap">
+      <button class="btn-load-more" id="load-more-btn" onclick="loadMore()">
+        Load More Stories ✨
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ── Footer ───────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">FeelGoodNews</div>
+    <p>© 2025 FeelGoodNews &nbsp;·&nbsp; <a href="about.html">About</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a> &nbsp;·&nbsp; <a href="#">Privacy</a></p>
+  </footer>
+
+  <!-- CMS Data -->
+  <script src="stories.js"></script>
+
+  <!-- Stories Page Logic -->
+  <script>
+    const CARDS_PER_PAGE = 6;
+    let currentlyShown  = CARDS_PER_PAGE;
+    let filteredStories = [...STORIES];
+
+    // ── Render the featured story card ──────────────────────────────
+    function renderSpFeatured() {
+      const story = FEATURED_STORY;
+      const imgEl = document.getElementById('sp-featured-img');
+
+      if (story.imgUrl) {
+        imgEl.innerHTML = `<img src="${story.imgUrl}" alt="${story.title}" />`;
+      } else {
+        imgEl.textContent = story.emoji;
+      }
+
+      document.getElementById('sp-featured-title').textContent   = story.title;
+      document.getElementById('sp-featured-excerpt').textContent = story.excerpt;
+      document.getElementById('sp-featured-link').href           = story.url;
+      document.getElementById('sp-featured-card').onclick        = () => location.href = story.url;
+
+      // Try to find matching story for author/date info
+      const match = STORIES.find(s => s.title === story.title);
+      if (match) {
+        document.getElementById('sp-featured-avatar').textContent =
+          match.author.split(' ').map(w => w[0]).join('');
+        document.getElementById('sp-featured-author').textContent = match.author;
+        document.getElementById('sp-featured-date').textContent   = match.date;
+      }
+    }
+
+    // ── Build a single story card HTML string ───────────────────────
+    function buildCard(s) {
+      return `
+        <article class="story-card" onclick="location.href='${s.url}'">
+          <div class="story-card-img">
+            ${s.imgUrl ? `<img src="${s.imgUrl}" alt="${s.title}" />` : s.emoji}
+          </div>
+          <div class="story-card-body">
+            <span class="story-tag">${s.tag}</span>
+            <h3>${s.title}</h3>
+            <p>${s.excerpt}</p>
+            <div class="story-meta">
+              <div class="story-author">
+                <div class="author-avatar">${s.author.split(' ').map(w => w[0]).join('')}</div>
+                <span>${s.author}</span>
+              </div>
+              <span>${s.date}</span>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    // ── Render the story grid ────────────────────────────────────────
+    function renderGrid() {
+      const grid       = document.getElementById('sp-story-grid');
+      const noResults  = document.getElementById('no-results');
+      const loadWrap   = document.getElementById('load-more-wrap');
+      const loadBtn    = document.getElementById('load-more-btn');
+      const countEl    = document.getElementById('story-count');
+
+      const visible = filteredStories.slice(0, currentlyShown);
+
+      if (filteredStories.length === 0) {
+        grid.innerHTML   = '';
+        noResults.style.display  = 'block';
+        loadWrap.style.display   = 'none';
+        countEl.textContent      = '0 stories';
+        return;
+      }
+
+      noResults.style.display = 'none';
+      grid.innerHTML = visible.map(buildCard).join('');
+
+      // Story count label
+      countEl.textContent = filteredStories.length === 1
+        ? '1 story'
+        : `${filteredStories.length} stories`;
+
+      // Show/hide Load More button
+      if (currentlyShown >= filteredStories.length) {
+        loadWrap.style.display = 'none';
+      } else {
+        loadWrap.style.display = 'block';
+        loadBtn.disabled = false;
+      }
+    }
+
+    // ── Load more cards ──────────────────────────────────────────────
+    function loadMore() {
+      currentlyShown += CARDS_PER_PAGE;
+      renderGrid();
+      // Scroll smoothly to the new cards
+      document.getElementById('sp-story-grid').lastElementChild
+        ?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // ── Search handler ───────────────────────────────────────────────
+    function handleSearch() {
+      const query = document.getElementById('search-input').value.toLowerCase().trim();
+
+      if (!query) {
+        filteredStories = [...STORIES];
+      } else {
+        filteredStories = STORIES.filter(s =>
+          s.title.toLowerCase().includes(query)   ||
+          s.excerpt.toLowerCase().includes(query) ||
+          s.author.toLowerCase().includes(query)  ||
+          s.tag.toLowerCase().includes(query)
+        );
+      }
+
+      // Hide featured card during search so it doesn't confuse results
+      const featuredWrap = document.getElementById('featured-story-wrap');
+      featuredWrap.style.display = query ? 'none' : 'block';
+
+      currentlyShown = CARDS_PER_PAGE;
+      renderGrid();
+    }
+
+    // ── Init ─────────────────────────────────────────────────────────
+    renderSpFeatured();
+    renderGrid();
+  </script>
+
+</body>
+</html>
