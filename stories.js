@@ -33,7 +33,7 @@ const STORIES = [
     imgUrl:  "",
     tag:     "Animals",
     title:   "Rescue Dog Trains to Become Certified Therapy Animal",
-    excerpt: "After being found wandering the streets, Biscuit the beagle found his calling — and now brings comfort to hospital patients every week.",
+    excerpt: "After being found wandering the streets, Biscuit the beagle found his calling, and now brings comfort to hospital patients every week.",
     author:  "Jamie Lee",
     date:    "March 28, 2025",
     url:     "#"
@@ -69,7 +69,7 @@ const FEATURED_STORY = {
   emoji:   "🌻",
   imgUrl:  "",
   title:   "Local Community Plants 1,000 Trees in a Single Weekend",
-  excerpt: "Neighbours in a small Ohio town came together for an extraordinary act of generosity — and transformed their city park forever.",
+  excerpt: "Neighbours in a small Ohio town came together for an extraordinary act of generosity, and transformed their city park forever.",
   url:     "#"
 };
  
