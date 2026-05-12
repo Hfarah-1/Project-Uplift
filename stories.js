@@ -10,12 +10,12 @@
 //
 //  HOW TO ADD A REAL PHOTO:
 //  1. Drop your image file into the "images/articles/" folder
-//  2. Set imgUrl to "images/articles/your-filename.jpg"
+//  2. Set imgUrl to "images/articles/your-filename.png"
 //  3. You can leave emoji blank ("") once you have a real image
 //
 //  FIELD GUIDE:
 //    emoji   — a placeholder shown when there's no real photo yet
-//    imgUrl  — path to a real photo, e.g. "images/articles/story1.jpg"
+//    imgUrl  — path to a real photo, e.g. "images/articles/story1.png"
 //              leave as "" to show the emoji instead
 //    tag     — short category label shown on the card
 //    title   — the story headline
@@ -29,7 +29,7 @@
 const STORIES = [
   {
     emoji:   "🌟",
-    imgUrl:  "images/articles/jude-baker.jpg",
+    imgUrl:  "images/articles/jude-baker.png",
     tag:     "Community",
     title:   "Jude Baker's Selfless Wish",
     excerpt: "After beating a rare bone cancer at 14, Jude Baker used his Make-A-Wish to feed over 300 people in his community — and refused to eat until every last person was served.",
@@ -39,7 +39,7 @@ const STORIES = [
   },
   {
     emoji:   "🏈",
-    imgUrl:  "images/articles/fernando-mendoza.jpg",
+    imgUrl:  "images/articles/fernando-mendoza.png",
     tag:     "Sports",
     title:   "Heisman Winner Fernando Mendoza Commits $500K to MS Research",
     excerpt: "The number one NFL Draft pick and his brother Alberto started the Mendoza Family Fund in honor of their mother Elisa, who has MS — and have now raised over $500,000.",
@@ -49,7 +49,7 @@ const STORIES = [
   },
   {
     emoji:   "🧚",
-    imgUrl:  "images/articles/bar-fairies.jpg",
+    imgUrl:  "images/articles/bar-fairies.png",
     tag:     "Community",
     title:   "The Bar Fairies: Rewarding Safe Choices One Gift Card at a Time",
     excerpt: "A nonprofit born from tragedy is leaving surprise gift cards on the windshields of people who chose not to drink and drive — now operating in 12 chapters across seven states.",
@@ -66,7 +66,7 @@ const STORIES = [
 
 const FEATURED_STORY = {
   emoji:   "🌟",
-  imgUrl:  "images/articles/jude-baker.jpg",
+  imgUrl:  "images/articles/jude-baker.png",
   title:   "Jude Baker's Selfless Wish",
   excerpt: "After beating a rare bone cancer at 14, Jude Baker used his Make-A-Wish to feed over 300 people in his community — and refused to eat until every last person was served.",
   url:     "articles/jude-baker.html"
