@@ -14,7 +14,7 @@
 //  2. Set imgUrl to "images/your-filename.jpg"
 //  3. You can leave emoji blank ("") once you have a real image
 //
-//  FIELD GUIDE: (should prob get to know these bro)
+//  FIELD GUIDE:
 //    emoji   — a placeholder shown when there's no real photo yet
 //    imgUrl  — path to a real photo, e.g. "images/story1.jpg"
 //              leave as "" to show the emoji instead
@@ -33,7 +33,7 @@ const STORIES = [
     imgUrl:  "",
     tag:     "Animals",
     title:   "Rescue Dog Trains to Become Certified Therapy Animal",
-    excerpt: "After being found wandering the streets, Biscuit the beagle found his calling, and now brings comfort to hospital patients every week.",
+    excerpt: "After being found wandering the streets, Biscuit the beagle found his calling — and now brings comfort to hospital patients every week.",
     author:  "Jamie Lee",
     date:    "March 28, 2025",
     url:     "#"
@@ -59,41 +59,41 @@ const STORIES = [
     url:     "#"
   }
 ];
- 
+
 // ─────────────────────────────────────────────────────────────────
 //  FEATURED STORY (shown in the hero banner on the homepage)
 //  Update this object to change the featured story.
 // ─────────────────────────────────────────────────────────────────
- 
+
 const FEATURED_STORY = {
   emoji:   "🌻",
   imgUrl:  "",
   title:   "Local Community Plants 1,000 Trees in a Single Weekend",
-  excerpt: "Neighbours in a small Ohio town came together for an extraordinary act of generosity, and transformed their city park forever.",
+  excerpt: "Neighbours in a small Ohio town came together for an extraordinary act of generosity — and transformed their city park forever.",
   url:     "#"
 };
- 
+
 // ─────────────────────────────────────────────────────────────────
 //  Rendering functions — no need to edit anything below this line
 // ─────────────────────────────────────────────────────────────────
- 
+
 function renderFeatured() {
   const imgEl = document.getElementById('featured-img');
   const titleEl = document.getElementById('featured-title');
   const excerptEl = document.getElementById('featured-excerpt');
   const linkEl = document.getElementById('featured-link');
- 
+
   if (FEATURED_STORY.imgUrl) {
     imgEl.innerHTML = `<img src="${FEATURED_STORY.imgUrl}" alt="${FEATURED_STORY.title}" />`;
   } else {
     imgEl.textContent = FEATURED_STORY.emoji;
   }
- 
+
   titleEl.textContent   = FEATURED_STORY.title;
   excerptEl.textContent = FEATURED_STORY.excerpt;
   linkEl.href           = FEATURED_STORY.url;
 }
- 
+
 function renderStories() {
   const grid = document.getElementById('story-grid');
   grid.innerHTML = STORIES.map(s => `
@@ -118,7 +118,7 @@ function renderStories() {
     </article>
   `).join('');
 }
- 
+
 // Run on page load — only fires on pages that have these elements (homepage)
 if (document.getElementById("featured-img"))  renderFeatured();
 if (document.getElementById("story-grid"))    renderStories();

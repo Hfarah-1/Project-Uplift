@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article Title — FeelGoodNews</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌻</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Shared Stylesheet (note the ../ because this file is inside articles/) -->
+  <link rel="stylesheet" href="../style.css" />
+
+  <!-- Article Page Specific Styles -->
+  <style>
+
+    /* ─── Article Hero ───────────────────────────────────────────── */
+    .article-hero {
+      background: linear-gradient(135deg, var(--yellow) 0%, var(--amber) 100%);
+      padding: 3.5rem 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      pointer-events: none;
+    }
+
+    .article-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 3rem;
+    }
+
+    .article-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: rgba(26,20,0,0.65);
+      margin-bottom: 1.5rem;
+      transition: color 0.2s;
+    }
+
+    .article-back:hover { color: var(--text); }
+
+    .article-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.4);
+      border: 1.5px solid rgba(255,255,255,0.6);
+      color: var(--text);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .article-hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: rgba(26,20,0,0.65);
+      margin-bottom: 2.5rem;
+    }
+
+    .article-meta .author-avatar {
+      width: 32px;
+      height: 32px;
+      font-size: 0.8rem;
+    }
+
+    .article-meta-author {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .meta-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(26,20,0,0.35);
+    }
+
+    /* ─── Article Header Image ───────────────────────────────────── */
+    .article-header-img {
+      max-width: 860px;
+      margin: 0 auto;
+      border-radius: var(--radius) var(--radius) 0 0;
+      overflow: hidden;
+      height: 420px;
+      background: linear-gradient(135deg, var(--yellow-light), var(--yellow));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .article-header-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ─── Article Body ───────────────────────────────────────────── */
+    .article-body-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .article-body {
+      background: var(--white);
+      border-radius: 0 0 var(--radius) var(--radius);
+      border: 2px solid var(--border);
+      border-top: none;
+      padding: 3rem 3.5rem;
+      box-shadow: 0 8px 40px var(--shadow);
+      margin-bottom: 3rem;
+    }
+
+    /* Lead paragraph */
+    .article-body .lead {
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.75;
+      color: var(--text);
+      margin-bottom: 1.8rem;
+      padding-bottom: 1.8rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    /* Body paragraphs */
+    .article-body p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.85;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body p:last-child { margin-bottom: 0; }
+
+    /* Pull quote */
+    .article-body blockquote {
+      background: var(--yellow-light);
+      border-left: 4px solid var(--amber);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 1.2rem 1.5rem;
+      margin: 2rem 0;
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .article-body blockquote cite {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-style: normal;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+    }
+
+    /* Section heading inside article */
+    .article-body h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin: 2rem 0 0.8rem;
+    }
+
+    /* ─── Article Footer ─────────────────────────────────────────── */
+    .article-footer {
+      max-width: 860px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .article-author-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+      flex: 1;
+    }
+
+    .article-author-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--yellow);
+      border: 2px solid var(--yellow-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .article-author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .article-author-info small {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .article-author-info strong {
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .article-author-info p {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+      line-height: 1.4;
+    }
+
+    .btn-back {
+      background: var(--text);
+      color: var(--yellow);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 16px rgba(26,20,0,0.15);
+      white-space: nowrap;
+    }
+
+    .btn-back:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26,20,0,0.2);
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .article-body { padding: 2rem 1.4rem; }
+      .article-header-img { height: 240px; font-size: 5rem; }
+      .article-body-wrap { padding: 0 1rem; }
+      .article-footer { padding: 0 1rem; flex-direction: column; }
+      .btn-back { width: 100%; text-align: center; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-logo"><a href="../index.html">Feel<span>Good</span>News</a></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../stories-page.html">Stories</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Subscribe ✨</button>
+  </nav>
+
+  <!-- ── Article Hero ────────────────────────────────────────────── -->
+  <section class="article-hero">
+    <div class="article-hero-inner">
+      <a href="../stories-page.html" class="article-back">← Back to all stories</a>
+      <div class="article-tag"><!-- TAG e.g. Community --></div>
+      <h1><!-- ARTICLE TITLE --></h1>
+      <div class="article-meta">
+        <div class="article-meta-author">
+          <div class="author-avatar"><!-- AUTHOR INITIALS --></div>
+          <span><!-- AUTHOR NAME --></span>
+        </div>
+        <div class="meta-dot"></div>
+        <span><!-- DATE --></span>
+        <div class="meta-dot"></div>
+        <span><!-- READ TIME e.g. 3 min read --></span>
+      </div>
+    </div>
+    <!-- Header image sits at the bottom of the hero, overlapping into the body -->
+    <div class="article-body-wrap">
+      <div class="article-header-img">
+        <!-- Replace emoji with: <img src="../images/articles/your-image.jpg" alt="description" /> -->
+        <!-- EMOJI PLACEHOLDER -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Article Body ─────────────────────────────────────────────── -->
+  <div class="article-body-wrap">
+    <div class="article-body">
+
+      <!-- Lead paragraph (bold intro sentence) -->
+      <p class="lead">
+        <!-- LEAD PARAGRAPH -->
+      </p>
+
+      <!-- Article content paragraphs -->
+      <p><!-- PARAGRAPH --></p>
+      <p><!-- PARAGRAPH --></p>
+
+      <!-- Pull quote example -->
+      <blockquote>
+        "<!-- QUOTE TEXT -->"
+        <cite>— <!-- QUOTE SOURCE --></cite>
+      </blockquote>
+
+      <p><!-- PARAGRAPH --></p>
+      <p><!-- PARAGRAPH --></p>
+
+    </div>
+  </div>
+
+  <!-- ── Article Footer ───────────────────────────────────────────── -->
+  <div class="article-footer">
+    <div class="article-author-card">
+      <div class="article-author-avatar">
+        <!-- Replace initials with: <img src="../images/team/author.jpg" alt="Author" /> -->
+        <!-- INITIALS -->
+      </div>
+      <div class="article-author-info">
+        <small>Written by</small>
+        <strong><!-- AUTHOR NAME --></strong>
+        <p><!-- SHORT AUTHOR BIO --></p>
+      </div>
+    </div>
+    <a href="../stories-page.html" class="btn-back">← More Stories</a>
+  </div>
+
+  <!-- ── Footer ───────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">FeelGoodNews</div>
+    <p>© 2026 FeelGoodNews &nbsp;·&nbsp; <a href="../about.html">About</a> &nbsp;·&nbsp; <a href="../contact.html">Contact</a> &nbsp;·&nbsp; <a href="#">Privacy</a></p>
+  </footer>
+
+</body>
+</html>
