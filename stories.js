@@ -13,7 +13,7 @@
 //  2. Set imgUrl to "images/articles/your-filename.png"
 //  3. You can leave emoji blank ("") once you have a real image
 //
-//  FIELD GUIDE:
+//  QUICK FIELD GUIDE:
 //    emoji   — a placeholder shown when there's no real photo yet
 //    imgUrl  — path to a real photo, e.g. "images/articles/story1.png"
 //              leave as "" to show the emoji instead
@@ -32,7 +32,7 @@ const STORIES = [
     imgUrl:  "images/articles/jude-baker.png",
     tag:     "Community",
     title:   "Jude Baker's Selfless Wish",
-    excerpt: "After beating a rare bone cancer at 14, Jude Baker used his Make-A-Wish to feed over 300 people in his community — and refused to eat until every last person was served.",
+    excerpt: "After beating a rare bone cancer, 14-year-old Jude Baker used his Make-A-Wish to feed over 300 people in his community, and refused to eat until every last person was served.",
     author:  "Jake Aron",
     date:    "May 1, 2026",
     url:     "articles/jude-baker.html"
@@ -42,7 +42,7 @@ const STORIES = [
     imgUrl:  "images/articles/fernando-mendoza.png",
     tag:     "Sports",
     title:   "Heisman Winner Fernando Mendoza Commits $500K to MS Research",
-    excerpt: "The number one NFL Draft pick and his brother Alberto started the Mendoza Family Fund in honor of their mother Elisa, who has MS — and have now raised over $500,000.",
+    excerpt: "The number one NFL Draft pick, along with his brother Alberto, started the Mendoza Family Fund in honor of their mother Elisa who has MS, and have now raised over $500,000.",
     author:  "Jake Aron",
     date:    "May 1, 2026",
     url:     "articles/fernando-mendoza.html"
@@ -52,7 +52,7 @@ const STORIES = [
     imgUrl:  "images/articles/bar-fairies.png",
     tag:     "Community",
     title:   "The Bar Fairies: Rewarding Safe Choices One Gift Card at a Time",
-    excerpt: "A nonprofit born from tragedy is leaving surprise gift cards on the windshields of people who chose not to drink and drive — now operating in 12 chapters across seven states.",
+    excerpt: "If you leave your car behind instead of driving under the influence in the Lake of the Ozarks, you might find a surprise gift card from The Bar Fairies waiting for you.",
     author:  "Jake Aron",
     date:    "May 1, 2026",
     url:     "articles/bar-fairies.html"
@@ -68,7 +68,7 @@ const FEATURED_STORY = {
   emoji:   "🌟",
   imgUrl:  "images/articles/jude-baker.png",
   title:   "Jude Baker's Selfless Wish",
-  excerpt: "After beating a rare bone cancer at 14, Jude Baker used his Make-A-Wish to feed over 300 people in his community — and refused to eat until every last person was served.",
+  excerpt: "After beating a rare bone cancer, 14-year-old Jude Baker used his Make-A-Wish to feed over 300 people in his community, and refused to eat until every last person was served.",
   url:     "articles/jude-baker.html"
 };
 
