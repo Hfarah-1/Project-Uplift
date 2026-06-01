@@ -28,6 +28,16 @@
 
 const STORIES = [
   {
+    emoji:   "🐢",
+    imgUrl:  "images/articles/sea-turtle.png",
+    tag:     "Environment",
+    title:   "Sea Turtles Are Back",
+    excerpt: "Once heavily reduced by overhunting and habitat loss, sea turtles are persevering. A global review has revealed that, against the odds, their populations are steadily rebounding.",
+    author:  "Jake Aron",
+    date:    "May 31, 2026",
+    url:     "articles/sea-turtles.html"
+  },
+  {
     emoji:   "🌟",
     imgUrl:  "images/articles/jude-baker.png",
     tag:     "Community",
@@ -65,11 +75,11 @@ const STORIES = [
 // ─────────────────────────────────────────────────────────────────
 
 const FEATURED_STORY = {
-  emoji:   "🌟",
-  imgUrl:  "images/articles/jude-baker.png",
-  title:   "Jude Baker's Selfless Wish",
-  excerpt: "After beating a rare bone cancer, 14-year-old Jude Baker used his Make-A-Wish to feed over 300 people in his community, and refused to eat until every last person was served.",
-  url:     "articles/jude-baker.html"
+  emoji:   "🐢",
+  imgUrl:  "images/articles/sea-turtle.png",
+  title:   "Sea Turtles Are Back",
+  excerpt: "Once heavily reduced by overhunting and habitat loss, sea turtles are persevering. A global review has revealed that, against the odds, their populations are steadily rebounding.",
+  url:     "articles/sea-turtles.html"
 };
 
 // ─────────────────────────────────────────────────────────────────
