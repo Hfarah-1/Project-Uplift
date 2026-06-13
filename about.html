@@ -138,7 +138,17 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="nav-cta">Subscribe ✨</button>
+    <button class="nav-cta" onclick="location.href='index.html#newsletter'">Subscribe ✨</button>
+    <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-mobile-menu" id="nav-mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="stories-page.html">Stories</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <button class="nav-cta" onclick="location.href='index.html#newsletter'">Subscribe ✨</button>
+    </div>
   </nav>
 
   <section class="about-hero">
@@ -333,6 +343,8 @@
     <div class="footer-logo">FeelGoodNews</div>
     <p>© 2026 FeelGoodNews &nbsp;·&nbsp; <a href="about.html">About</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a> &nbsp;·&nbsp; <a href="#">Privacy</a></p>
   </footer>
+
+  <script src="nav.js"></script>
 
 </body>
 </html>
