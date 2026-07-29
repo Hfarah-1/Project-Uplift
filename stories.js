@@ -28,12 +28,22 @@
 
 const STORIES = [
   {
+    emoji:   "⚡",
+    imgUrl:  "images/articles/Europe-clean-energy.png",
+    tag:     "Environment",
+    title:   "Europe's Clean Energy Bet Is Paying Off — Big",
+    excerpt: "The European Union saved an estimated €51 billion in 2025 by cutting its reliance on imported fossil fuels, pouring €90 billion into renewables and sending solar power to record highs.",
+    author:  "Jake Aaron",
+    date:    "July 29, 2026",
+    url:     "articles/europe-clean-energy.html"
+  },
+  {
     emoji:   "🐢",
     imgUrl:  "images/articles/sea-turtle.png",
     tag:     "Environment",
     title:   "Sea Turtles Are Back",
     excerpt: "Once heavily reduced by overhunting and habitat loss, sea turtles are persevering. A global review has revealed that, against the odds, their populations are steadily rebounding.",
-    author:  "Jake Aron",
+    author:  "Jake Aaron",
     date:    "May 31, 2026",
     url:     "articles/sea-turtles.html"
   },
@@ -43,7 +53,7 @@ const STORIES = [
     tag:     "Community",
     title:   "Jude Baker's Selfless Wish",
     excerpt: "After beating a rare bone cancer, 14-year-old Jude Baker used his Make-A-Wish to feed over 300 people in his community, and refused to eat until every last person was served.",
-    author:  "Jake Aron",
+    author:  "Jake Aaron",
     date:    "May 1, 2026",
     url:     "articles/jude-baker.html"
   },
@@ -53,7 +63,7 @@ const STORIES = [
     tag:     "Sports",
     title:   "Heisman Winner Fernando Mendoza Commits $500K to MS Research",
     excerpt: "The number one NFL Draft pick, along with his brother Alberto, started the Mendoza Family Fund in honor of their mother Elisa who has MS, and have now raised over $500,000.",
-    author:  "Jake Aron",
+    author:  "Jake Aaron",
     date:    "May 1, 2026",
     url:     "articles/fernando-mendoza.html"
   },
@@ -63,7 +73,7 @@ const STORIES = [
     tag:     "Community",
     title:   "The Bar Fairies: Rewarding Safe Choices One Gift Card at a Time",
     excerpt: "If you leave your car behind instead of driving under the influence in the Lake of the Ozarks, you might find a surprise gift card from The Bar Fairies waiting for you.",
-    author:  "Jake Aron",
+    author:  "Jake Aaron",
     date:    "May 1, 2026",
     url:     "articles/bar-fairies.html"
   }
@@ -75,11 +85,11 @@ const STORIES = [
 // ─────────────────────────────────────────────────────────────────
 
 const FEATURED_STORY = {
-  emoji:   "🐢",
-  imgUrl:  "images/articles/sea-turtle.png",
-  title:   "Sea Turtles Are Back",
-  excerpt: "Once heavily reduced by overhunting and habitat loss, sea turtles are persevering. A global review has revealed that, against the odds, their populations are steadily rebounding.",
-  url:     "articles/sea-turtles.html"
+  emoji:   "⚡",
+  imgUrl:  "images/articles/Europe-clean-energy.png",
+  title:   "Europe's Clean Energy Bet Is Paying Off — Big",
+  excerpt: "The European Union saved an estimated €51 billion in 2025 by cutting its reliance on imported fossil fuels, pouring €90 billion into renewables and sending solar power to record highs.",
+  url:     "articles/europe-clean-energy.html"
 };
 
 // ─────────────────────────────────────────────────────────────────
