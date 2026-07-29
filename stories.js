@@ -86,7 +86,7 @@ const STORIES = [
 
 const FEATURED_STORY = {
   emoji:   "⚡",
-  imgUrl:  "images/articles/Europe-clean-energy.png",
+  imgUrl:  "images/articles/europe-clean-energy.png",
   title:   "Europe's Clean Energy Bet Is Paying Off — Big",
   excerpt: "The European Union saved an estimated €51 billion in 2025 by cutting its reliance on imported fossil fuels, pouring €90 billion into renewables and sending solar power to record highs.",
   url:     "articles/europe-clean-energy.html"
