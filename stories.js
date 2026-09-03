@@ -28,6 +28,16 @@
 
 const STORIES = [
   {
+    emoji:   "👁️",
+    imgUrl:  "images/articles/bionic-eye2.png",
+    tag:     "Science",
+    title:   "Europe Approves Bionic Eye Implant That Gives Sight Back to the Blind",
+    excerpt: "A retinal implant called PRIMA has passed clinical trials and been approved in Europe, offering partial vision restoration to millions affected by age-related sight loss.",
+    author:  "Xander Lundblad",
+    date:    "September 3, 2026",
+    url:     "articles/bionic-eye.html"
+  },
+  {
     emoji:   "⚡",
     imgUrl:  "images/articles/europe-clean-energy.png",
     tag:     "Environment",
@@ -85,11 +95,11 @@ const STORIES = [
 // ─────────────────────────────────────────────────────────────────
 
 const FEATURED_STORY = {
-  emoji:   "⚡",
-  imgUrl:  "images/articles/europe-clean-energy.png",
-  title:   "Europe's Clean Energy Bet Is Paying Off — Big",
-  excerpt: "The European Union saved an estimated €51 billion in 2025 by cutting its reliance on imported fossil fuels, pouring €90 billion into renewables and sending solar power to record highs.",
-  url:     "articles/europe-clean-energy.html"
+  emoji:   "👁️",
+  imgUrl:  "images/articles/bionic-eye2.png",
+  title:   "Europe Approves Bionic Eye Implant That Gives Sight Back to the Blind",
+  excerpt: "A retinal implant called PRIMA has passed clinical trials and been approved in Europe, offering partial vision restoration to millions affected by age-related sight loss.",
+  url:     "articles/bionic-eye.html"
 };
 
 // ─────────────────────────────────────────────────────────────────
