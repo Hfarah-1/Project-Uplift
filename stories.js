@@ -41,7 +41,7 @@ const STORIES = [
     emoji:   "⚡",
     imgUrl:  "images/articles/europe-clean-energy.png",
     tag:     "Environment",
-    title:   "Europe's Clean Energy Bet Is Paying Off — Big",
+    title:   "Europe's Clean Energy Bet Is Paying Off Big",
     excerpt: "The European Union saved an estimated €51 billion in 2025 by cutting its reliance on imported fossil fuels, pouring €90 billion into renewables and sending solar power to record highs.",
     author:  "Jake Aaron",
     date:    "July 29, 2026",
